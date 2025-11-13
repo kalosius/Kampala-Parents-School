@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
 	# Avoid using the "admin/" prefix so these views are not confused with Django's admin site
-	path('admin-dashboard/light/', views.admin_dashboard_light, name='admin_dashboard_light'),
+	path('', views.admin_dashboard_light, name='admin_dashboard_light'),
 	path('admin-dashboard/dark/', views.admin_dashboard_dark, name='admin_dashboard_dark'),
 
 	path('attendance/teachers/light/', views.attendance_teachers_light, name='attendance_teachers_light'),
@@ -26,4 +26,14 @@ urlpatterns = [
 
 	path('teacher/dashboard/light/', views.teacher_dashboard_light, name='teacher_dashboard_light'),
 	path('teacher/dashboard/dark/', views.teacher_dashboard_dark, name='teacher_dashboard_dark'),
+	# User management
+	path('user-management/', views.user_management, name='user_management'),
+	path('settings/', views.system_settings, name='system_settings'),
+	path('calendar/', views.calendar, name='calendar'),
+
+	# Authentication (login / register / password)
+	path('auth/login/', views.login_view, name='login'),
+	path('auth/register/', views.register_view, name='register'),
+	path('auth/forgot-password/', views.forgot_password, name='forgot_password'),
+	path('auth/logout/', views.logout_view, name='logout'),
 ]
